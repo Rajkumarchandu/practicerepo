@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bulb Swing Login</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: #f5d47a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    /* 🔥 BULB WITH SWING */
+    .bulb {
+      position: absolute;
+      top: 0;
+      left: 80px;
+      cursor: pointer;
+
+      transform-origin: top center;
+      animation: swing 2s infinite ease-in-out;
+    }
+
+    .wire {
+      width: 2px;
+      height: 120px;
+      background: black;
+      margin: auto;
+    }
+
+    .light {
+      width: 40px;
+      height: 40px;
+      background: yellow;
+      border-radius: 50%;
+      margin: auto;
+      box-shadow: 0 0 30px yellow;
+      transition: 0.5s;
+    }
+
+    /* 🔄 SWING ANIMATION */
+    @keyframes swing {
+      0%   { transform: rotate(-12deg); }
+      50%  { transform: rotate(12deg); }
+      100% { transform: rotate(-12deg); }
+    }
+
+    /* 🧾 LOGIN FORM */
+    .login-box {
+      width: 320px;
+      padding: 25px;
+      background: #fff3cd;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      margin: auto;
+      margin-top: 150px;
+      text-align: center;
+      transition: 0.5s;
+    }
+
+    .login-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .login-box p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background: #f2f2f2;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: orange;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* 🌑 OFF STATE */
+    .off {
+      background: black !important;
+    }
+
+    .off .login-box {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .off .light {
+      background: #444;
+      box-shadow: none;
+    }
+
+    /* ⛔ Stop swing when OFF */
+    .off .bulb {
+      animation: none;
+    }
+
+  </style>
+</head>
+
+<body id="body">
+
+<div class="container">
+
+  <!-- 💡 BULB -->
+  <div class="bulb" onclick="toggleLight()">
+    <div class="wire"></div>
+    <div class="light"></div>
+  </div>
+
+  <!-- 🧾 LOGIN FORM -->
+  <div class="login-box">
+    <h2>Welcome Back</h2>
+    <p>Sign in to continue</p>
+
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+
+    <button>Sign In</button>
+  </div>
+
+</div>
+
+<script>
+  let isOn = true;
+
+  function toggleLight() {
+    const body = document.getElementById("body");
+
+    if (isOn) {
+      body.classList.add("off");   // OFF
+    } else {
+      body.classList.remove("off"); // ON
+    }
+
+    isOn = !isOn;
+  }
+</script>
+
+</body>
+</html>
