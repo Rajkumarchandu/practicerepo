@@ -1,0 +1,27 @@
+.banner{
+    background-image: url("../src/assets/images/grocery.jpg");
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+.blur{
+    background: rgba(0,0,0,0.7);
+    height: 70vh;
+     display: flex;
+     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:white;
+}
+
+.blur h1{
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.blur p{
+    width: 1000px;
+}
